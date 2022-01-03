@@ -33,9 +33,9 @@
 
         <nav>
           <ul class="sait-nav">
-            <li class="item"><a href="" class="current">Студия</a></li>
+            <li class="item"><a href="/" class="current">Студия</a></li>
             <li class="item"><a href="./portfolio.html">Портфолио</a></li>
-            <li class="item"><a href="#">Контакты</a></li>
+            <li class="item"><a href="/">Контакты</a></li>
           </ul>
         </nav>
 
@@ -85,41 +85,88 @@
                   </svg>
                 </button>
                 <p class="text">Оставьте свои данные, мы вам перезвоним</p>
-                <form class="inner" action="" name="">
-                  <label class="item" for="">
-                    <span class="item-name">Имя</span>
-                    <span class="wrapper">
-                      <input class="field" type="text" name="username" />
+                <form class="inner">
+                  <div class="form-field">
+                    <label class="signature" name="name"> Имя </label>
+                    <span class="position">
+                      <input
+                        class="field"
+                        type="text"
+                        id="name"
+                        autocomplete="off"
+                      />
                       <svg class="icon">
                         <use
                           href="./images/symbol-defs.svg#icon-person_modal"
                         ></use>
                       </svg>
                     </span>
-                  </label>
-                  <label class="item" for="">
-                    Телефон <input class="field" type="tel name="phone_number"
-                    />
-                  </label>
-                  <label class="item" for="">
-                    Почта
-                    <input class="field" type="email" name="mail" />
-                  </label>
-                  <label class="item" for="">
-                    Комментарий
+                  </div>
+
+                  <div class="form-field">
+                    <label class="signature" name="tel"> Имя </label>
+                    <span class="position">
+                      <input
+                        class="field"
+                        type="tel"
+                        id="tel"
+                        autocomplete="off"
+                      />
+                      <svg class="icon">
+                        <use
+                          href="./images/symbol-defs.svg#icon-phone_modal"
+                        ></use>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="form-field">
+                    <label class="signature" name="email"> Имя </label>
+                    <span class="position">
+                      <input
+                        class="field"
+                        type="email"
+                        id="email"
+                        autocomplete="off"
+                      />
+                      <svg class="icon">
+                        <use
+                          href="./images/symbol-defs.svg#icon-email_modal"
+                        ></use>
+                      </svg>
+                    </span>
+                  </div>
+                  <div class="form-field a">
+                    <label class="signature" name="textarea">Комментарий</label>
                     <textarea
                       class="textarea field"
-                      name="feedback"
+                      type="text"
+                      id="textarea"
+                      autocomplete="off"
                       placeholder="Введите текст"
-                    >
-                    </textarea>
-                  </label>
-                  <label for="">
-                    <input type="checkbox" name="checkbox" />
-                    Соглашаюсь с рассылкой и принимаю
-                    <a class="modal-link" href="#">Условия договора</a>
-                  </label>
-                  <button type="submit" class="form-button">Отправить</button>
+                    ></textarea>
+                  </div>
+                  <div class="checkbox-field">
+                    <label class="signature" name="checkbox">
+                      <input
+                        class="checkbox"
+                        type="checkbox"
+                        id="checkbox"
+                        autocomplete="off"
+                      />
+                      <span class="wrapper-icon">
+                        <svg class="icon-check">
+                          <use
+                            href="./images/symbol-defs.svg#icon-icon-check"
+                          ></use>
+                        </svg>
+                      </span>
+                      &nbsp; Соглашаюсь с рассылкой и принимаю &nbsp;
+                      <a clas="link-checkbox" href="#">Условия договора</a>
+                    </label>
+                  </div>
+                  <div class="submit-wrapper">
+                    <button type="submit" class="form-button">Отправить</button>
+                  </div>
                 </form>
               </div>
             </div>
@@ -421,7 +468,7 @@
 
     <footer class="footer">
       <div class="container">
-        <div>
+        <div class="footer-text">
           <a href="/" lang="en" class="text-logo footer-logo">
             <span class="span-logo">Web</span>Studio
           </a>
@@ -490,6 +537,23 @@
               </li>
             </ul>
           </section>
+        </div>
+        <div class="wrapper-form">
+          <h2 class="title">Подпишитесь на рассылку</h2>
+          <form class="footer-form" action="" autocomplete="off">
+            <input
+              class="footer-field"
+              type="emeil"
+              name="meil"
+              placeholder="E-mail"
+            />
+            <button type="submit" class="footer-button" data-modal-open>
+              Подписаться
+              <svg class="icon">
+                <use href="./images/symbol-defs.svg#icon-icon_send"></use>
+              </svg>
+            </button>
+          </form>
         </div>
       </div>
     </footer>

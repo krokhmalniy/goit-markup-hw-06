@@ -233,7 +233,7 @@ p {
   min-height: 581px;
   transform: translate(-50%, -50%);
   border-radius: 4px;
-  padding: 40px 39px 40px 41px;
+  padding: 40px;
 
   top: 50%;
   left: 50%;
@@ -263,11 +263,11 @@ p {
   width: 30px;
   height: 30px;
   fill: currentColor;
+  transition: color var(--transition);
 }
 
 .modal-button:hover .icon-close,
 .modal-button:focus .icon-close {
-  fill: currentColor;
   color: var(--hover-color);
 }
 
@@ -284,33 +284,25 @@ p {
   color: #212121;
 }
 
-.modal .modal-link {
-  text-decoration: underline;
-  color: var(--hover-color);
-}
-
-.modal .item {
+.modal .inner {
   display: flex;
   flex-direction: column;
-  text-align: start;
 }
 
-.modal .textarea {
-  resize: none;
-}
-
-.inner .item {
+.form-field {
+  display: flex;
+  flex-direction: column;
   margin-bottom: 10px;
-  position: relative;
 }
 
-.inner .wrapper {
-  position: relative;
+.modal .form-field {
+  margin-bottom: 20px;
 }
 
-.modal .item-name {
+.modal .signature {
   margin-bottom: 4px;
-  font-family: var(--primeri-font-family);
+  text-align: start;
+  font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -321,34 +313,144 @@ p {
 }
 
 .modal .field {
+  width: 100%;
+  height: 40px;
   border: 1px solid rgba(33, 33, 33, 0.2);
-  box-sizing: border-box;
   border-radius: 4px;
-  min-height: 40px;
+  outline: none;
   padding-left: 42px;
   padding-right: 42px;
-  width: 100%;
+  transition: border-color var(--transition);
+}
 
-  cursor: pointer;
+.modal .textarea {
+  resize: none;
+  height: 120px;
+  padding: 12px 16px;
 }
 
 .modal .field:focus {
-  border-color: #2196f3;
+  border-color: var(--hover-color);
+}
+
+.modal .position {
+  position: relative;
 }
 
 .modal .icon {
   position: absolute;
-  top: 50;
-  left: 12px;
-  transform: translateY(50%);
-
-  display: inline-block;
   width: 18px;
   height: 18px;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  color: currentColor;
+  transition: fill var(--transition);
 }
 
-.modal .icon:focus {
-  fill: currentColor;
+.field:focus + .icon {
+  fill: var(--hover-color);
+}
+
+/* =====Цвет подсказывающего текста===== */
+
+.modal .textarea[placeholder]::-moz-placeholder {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+.modal .textarea[placeholder]::-webkit-input-placeholder {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+.modal .textarea[placeholder]::-ms-input-placeholder {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+.modal .textarea[placeholder]::-ms-input-placeholder {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.modal .textarea[placeholder]::placeholder {
+  font-size: 12px;
+  line-height: 1.16;
+  letter-spacing: 0.01em;
+
+  color: rgba(117, 117, 117, 0.5);
+}
+
+.modal .checkbox-field {
+  display: inline-block;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-bottom: 30px;
+}
+
+.modal .signature {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  font-size: 14px;
+  line-height: 1.71;
+  letter-spacing: 0.03em;
+
+  color: #757575;
+}
+
+.wrapper-icon::after {
+  margin-left: 30px;
+}
+
+.modal .wrapper-icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 15px;
+  border: 2px solid #212121;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 1);
+  transition: background-color var(--transition), border var(--transition);
+  background-origin: content-box;
+}
+
+.signature .icon-check {
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+}
+
+.checkbox:checked + .wrapper-icon {
+  background-color: var(--hover-color);
+  background-size: contain;
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.modal .submit-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.checkbox-field a {
+  color: var(--hover-color);
+  text-decoration: underline;
 }
 
 .modal .form-button {
@@ -362,8 +464,8 @@ p {
   border-radius: 4px;
   border: none;
   padding: 10px 32px;
-  min-width: 200px;
-  min-height: 50px;
+  width: 200px;
+  height: 50px;
   text-align: center;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
 
@@ -521,8 +623,6 @@ p {
   align-items: center;
 }
 
-/* ================== */
-
 .shell {
   display: flex;
 }
@@ -539,8 +639,6 @@ p {
 .shell .item:not(:last-child) {
   margin-right: 30px;
 }
-
-/* =====New code===== */
 
 .shell .social-networks {
   display: flex;
@@ -579,8 +677,6 @@ p {
   fill: currentColor;
 }
 
-/* ================== */
-
 /* =====Regular customers=====*/
 
 .customers .title {
@@ -592,7 +688,7 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
-
+  transition: color var(--transition), border-color var(--transition);
   width: 170px;
   height: 92px;
   border: 1px solid #afb1b8;
@@ -672,8 +768,6 @@ p {
   margin-bottom: 0px;
 }
 
-/* =====New code===== */
-
 .footer .container {
   display: flex;
 }
@@ -735,7 +829,136 @@ p {
   fill: currentColor;
 }
 
-/* ================== */
+.footer .wrapper-form {
+  margin-left: 93px;
+  padding-top: 12px;
+  padding-bottom: 40px;
+}
+
+.footer .footer-form {
+  display: flex;
+}
+
+.wrapper-form .title {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.footer-form .footer-button {
+  position: relative;
+  font-size: 16px;
+  line-height: 1.87;
+  border-radius: 4px;
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 29px;
+  padding-right: 62px;
+  margin-left: 12px;
+  min-width: 200px;
+  min-height: 50px;
+  text-align: center;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  font-family: inherit;
+
+  color: rgba(255, 255, 255, 1);
+  background: rgba(33, 150, 243, 1);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+
+  cursor: pointer;
+}
+
+.footer-form .icon {
+  position: absolute;
+  top: 50%;
+  right: 28px;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+}
+
+.footer-form .footer-field {
+  width: 358px;
+  height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: #2f303a;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.15));
+  padding: 15px 16px;
+  border-radius: 4px;
+  transition: border var(--transition);
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-field:focus {
+  outline: none;
+  border: 1px solid #2196f3;
+}
+
+/* =====Цвет подсказывающего текста===== */
+
+.footer-field[type="emeil"]::-moz-placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer-field[type="emeil"]::-webkit-input-placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer-field[type="emeil"]::-ms-input-placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer-field[type="emeil"]::-ms-input-placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
+.footer-field[type="emeil"]::placeholder {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 1.25;
+
+  letter-spacing: 0.03em;
+
+  color: rgba(255, 255, 255, 0.6);
+}
 
 /* =====Portfolio.html styles===== */
 
